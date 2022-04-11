@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package organisation;
+
+
+service OrganisationService {
+    rpc CreateOrganisation (CreateOrganisationRequest) returns (CreateOrganisationResponse) {}
+
+    rpc CreateOrganisations (CreateOrganisationsRequest) returns (CreateOrganisationsResponse) {}
+    rpc  UpdateOrganisation (UpdateOrganisationRequest) returns (UpdateOrganisationResponse) {}
+    rpc UpdateOrganisations (UpdateOrganisationsRequest) returns (UpdateOrganisationsResponse) {}
+    rpc DeleteOrganisation (DeleteOrganisationRequest) returns (DeleteOrganisationResponse) {}
+    rpc DeleteOrganisations (DeleteOrganisationsRequest) returns (DeleteOrganisationsResponse) {}
+
+}
+
+enum OrganisationType {
+ SINGLE_USER = 0;
+ AGENCY = 1;
+ENTERPRISE = 2;
+}
+
+message CreateOrganisationRequest {
+    string name = 1;
+    string registrationNumber = 2;
+    string dataProtectionPolicyCountry = 3;
+    bool hasLawfulBasisToCollectData = 4;
+    string dataSubjects = 5;
+    string purposeOfDataCollectionAndProcessing = 6;
+    string address = 7;
+    string numberOfEmployees = 8;
+    string countryOfOperation = 9;
+    string email = 10;
+    OrganisationType organisationType = 11;
+    string ownerId = 12;
+}
+
+message CreateOrganisationResponse  {
+    int32 status = 1;
+    repeated string error = 2;
+    string organisationId = 3;
+
+}
+
+message CreateOrganisationsRequest {
+    repeated CreateOrganisationRequest data =  1;
+}
+
+message CreateOrganisationsResponse {
+    int32 status = 1;
+    repeated string error = 2;
+    repeated string organisationIds = 3;
+}
+
+
+message OrganisationWhereUniqueInput {
+    string id = 1;
+    string registrationNumber = 2;
+    string email = 3;
+}
+
+message UpdateOrganisationInput {
+    string name = 1;
+    string registrationNumber = 2;
+    string dataProtectionPolicyCountry = 3;
+    bool hasLawfulBasisToCollectData = 4;
+    string dataSubjects = 5;
+    string purposeOfDataCollectionAndProcessing = 6;
+    string address = 7;
+    string numberOfEmployees = 8;
+    string countryOfOperation = 9;
+    OrganisationType organisationType = 11;
+}
+
+message UpdateOrganisationRequest {
+    OrganisationWhereUniqueInput where = 1;
+    UpdateOrganisationInput data = 2;
+}
+
+message UpdateOrganisationResponse {
+    int32 status = 1;
+    repeated string error = 2;
+    string organisationId = 3;
+}
+
+message UpdateOrganisationsRequest {
+    repeated UpdateOrganisationRequest data = 1;
+}
+
+message UpdateOrganisationsResponse {
+    int32 status = 1;
+    repeated string error = 2;
+    repeated string organisationIds = 3;
+}
+
+message DeleteOrganisationRequest {
+   OrganisationWhereUniqueInput where = 1;
+}
+
+message DeleteOrganisationResponse {
+    int32 status = 1;
+    repeated string error = 2;
+    string organisationId = 3;
+}
+
+message DeleteOrganisationsRequest{
+  repeated OrganisationWhereUniqueInput where = 1;
+}
+
+message DeleteOrganisationsResponse {
+    int32 status = 1;
+    repeated string error = 2;
+    repeated string organisationIds = 3;
+}
