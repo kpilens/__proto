@@ -1,5 +1,5 @@
 {
-  "name": "__proto",
+  "name": "@kpilens/proto",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT"
