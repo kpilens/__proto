@@ -1,0 +1,132 @@
+syntax = "proto3";
+
+package entities;
+
+enum CollaborationResourceEnum {
+  PROJECT = 0;
+  WORKSPACE = 1;
+}
+
+enum CollaborationStatusEnum {
+  ACCEPTED = 0;
+  DECLINED = 1;
+  PENDING = 3;
+}
+
+enum GuestRoleEnum {
+  OWNER = 0;
+  CREATOR = 1;
+  EDITOR = 2;
+  READONLY = 3;
+}
+
+message Collaboration {
+  CollaborationResourceEnum resource = 1;
+  string resourceId = 2;
+  User guest = 3;
+  User host = 4;
+  GuestRoleEnum guestRole = 5;
+  CollaborationStatusEnum status = 6;
+  string createdAt = 7;
+  string updatedAt = 8;
+}
+
+enum OrganisationTypeEnum {
+  SINGLE_USER = 0;
+  AGENCY = 1;
+  ENTERPRISE = 2;
+}
+
+message Organisation {
+  string name = 1;
+  string registrationNumber = 2;
+  string dataProtectionPolicyCountry = 3;
+  bool hasLawfulBasisToCollectData = 4;
+  string dataSubjects = 5;
+  string purposeOfDataCollectionAndProcessing = 6;
+  string address = 7;
+  string numberOfEmployees = 8;
+  string countryOfOperation = 9;
+  string email = 10;
+  OrganisationTypeEnum organisationType = 11;
+  string createdAt = 12;
+  string updatedAt = 13;
+  string freeTrialExpirationDate = 14;
+  string isPaying = 15;
+  repeated User users = 16;
+  repeated Team teams = 17;
+  User owner = 18;
+  repeated Workspace workspaces = 19;
+  repeated Project projects = 20;
+}
+
+message Project {
+  string name = 1;
+  string description = 2;
+  Workspace workspace = 3;
+  string startDate = 4;
+  string endDate = 5;
+  repeated Survey surveys = 6;
+  Organisation organisation = 7;
+  repeated User users = 8;
+  bool isArchived = 9;
+  string createdAt = 10;
+  string updatedAt = 11;
+}
+
+message SurveyResponse {
+  Survey survey = 1;
+  string response = 2;
+  string createdAt = 3;
+  string updatedAt = 4;
+}
+
+message Survey {
+  string name = 1;
+  string schema = 2;
+  string widgets = 3;
+  repeated Project project = 4;
+  string publishId = 5;
+  bool isPublished = 6;
+  string createdAt = 7;
+  string updatedAt = 8;
+  User author = 9;
+  repeated SurveyResponse responses = 10;
+}
+
+message Team {
+  string name = 1;
+  repeated User members = 2;
+  Organisation organisation = 3;
+}
+
+message User {
+  string firstname = 1;
+  string lastname = 2;
+  string email = 3;
+  string password = 4;
+  string title = 5;
+  bool isOwner = 6;
+  string createdAt = 7;
+  string updatedAt = 8;
+  bool hasVerifiedEmail = 9;
+  repeated Team teams = 10;
+  repeated Workspace workspaces = 11;
+  repeated Project projects = 12;
+  repeated Collaboration collaborationsSent = 13;
+  repeated Collaboration collaborationsReceived = 14;
+  string googleId = 15;
+  string facebookId = 16;
+  string linkedInId = 17;
+}
+
+message Workspace {
+  string name = 1;
+  string description = 2;
+  Organisation organisation = 3;
+  repeated Project projects = 4;
+  repeated User users = 5;
+  bool isArchived = 6;
+  string createdAt = 7;
+  string updatedAt = 8;
+}

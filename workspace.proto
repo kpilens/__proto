@@ -1,17 +1,2 @@
 syntax = "proto3";
 package workspace;
-
-import "organisation.proto";
-import "project.proto";
-import "user.proto";
-
-message Workspace {
-   string name = 1;
-  string description = 2;
-   Organisation organisation = 3;
-   repeated Project projects = 4;
-  repeated User  users = 5;
-   bool isArchived = 6;
-   string createdAt = 7;
-   string updatedAt = 8;
-}

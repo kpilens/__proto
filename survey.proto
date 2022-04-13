@@ -1,19 +1,2 @@
 syntax = "proto3";
 package survey;
-
-import "project.proto";
-import "user.proto";
-import "survey-response.proto";
-
-message Survey {
-  string  name = 1;
-  string  schema = 2;
-   string widgets = 3;
-  repeated Project  project = 4;
-   string publishId = 5;
-   bool isPublished = 6;
-   string createdAt = 7;
-   string updatedAt = 8;
-   User author = 9;
-   repeated SurveyResponse responses = 10;
-}
