@@ -1,5 +1,4 @@
 syntax = "proto3";
-
 package organisation;
 
 import "entities.proto";
@@ -31,7 +30,7 @@ message CreateOrganisationRequest {
   string numberOfEmployees = 8;
   string countryOfOperation = 9;
   string email = 10;
-  OrganisationTypeEnum organisationType = 11;
+  entities.OrganisationTypeEnum organisationType = 11;
   string ownerId = 12;
 }
 
@@ -67,7 +66,7 @@ message UpdateOrganisationInput {
   string address = 7;
   string numberOfEmployees = 8;
   string countryOfOperation = 9;
-  OrganisationTypeEnum organisationType = 11;
+  entities.OrganisationTypeEnum organisationType = 11;
 }
 
 message UpdateOrganisationRequest {
