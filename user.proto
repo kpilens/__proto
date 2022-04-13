@@ -1,0 +1,27 @@
+syntax = "proto3";
+package user;
+
+import "team.proto";
+import "workspace.proto";
+import "project.proto";
+import "collaboration.proto";
+
+message User {
+   string firstname  = 1;
+   string lastname  = 2;
+   string email = 3;
+   string password  = 4;
+   string title  = 5;
+    bool isOwner = 6 ;
+   string createdAt  = 7;
+   string updatedAt = 8;
+   bool hasVerifiedEmail = 9;
+   repeated Team teams = 10;
+   repeated Workspace workspaces = 11;
+  repeated Project  projects = 12;
+  repeated Collaboration  collaborationsSent = 13;
+   repeated Collaboration collaborationsReceived = 14;
+   string googleId  = 15;
+   string facebookId  = 16;
+   string linkedInId  = 17 ;
+}

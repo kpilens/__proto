@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package collaboration;
+
+
+import "user.proto";
+
+
+enum CollaborationResourceEnum {
+    PROJECT = 0;
+    WORKSPACE = 1;
+}
+
+enum CollaborationStatusEnum {
+ACCEPTED = 0;
+DECLINED = 1;
+PENDING = 3;
+}
+
+enum GuestRoleEnum {
+    OWNER = 0;
+    CREATOR = 1;
+    EDITOR = 2;
+    READONLY = 3;
+}
+
+message Collaboration {
+    CollaborationResourceEnum resource = 1;
+   string resourceId = 2;
+   User guest = 3;
+   User host = 4;
+   GuestRoleEnum guestRole = 5;
+  CollaborationStatusEnum status = 6;
+  string  createdAt = 7;
+   string updatedAt = 8;
+}

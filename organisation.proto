@@ -2,6 +2,10 @@ syntax = "proto3";
 
 package organisation;
 
+import "user.proto";
+import "team.proto";
+import "workspace.proto";
+import "project.proto";
 
 service OrganisationService {
     rpc CreateOrganisation (CreateOrganisationRequest) returns (CreateOrganisationResponse) {}
@@ -14,7 +18,31 @@ service OrganisationService {
 
 }
 
-enum OrganisationType {
+
+message Organisation {
+    string name  = 1;
+   string registrationNumber = 2;
+  string  dataProtectionPolicyCountry = 3;
+   bool hasLawfulBasisToCollectData = 4;
+   string dataSubjects  = 5;
+   string purposeOfDataCollectionAndProcessing = 6;
+   string address = 7;
+  string  numberOfEmployees = 8;
+   string countryOfOperation = 9;
+   string email = 10;
+   OrganisationTypeEnum organisationType = 11;
+   string createdAt = 12;
+   string updatedAt = 13;
+   string freeTrialExpirationDate = 14;
+    string isPaying = 15;
+   repeated User users = 16;
+   repeated Team teams = 17;
+    User owner = 18;
+    repeated Workspace workspaces = 19;
+  repeated Project  projects = 20;
+}
+
+enum OrganisationTypeEnum {
  SINGLE_USER = 0;
  AGENCY = 1;
 ENTERPRISE = 2;
@@ -31,7 +59,7 @@ message CreateOrganisationRequest {
     string numberOfEmployees = 8;
     string countryOfOperation = 9;
     string email = 10;
-    OrganisationType organisationType = 11;
+    OrganisationTypeEnum organisationType = 11;
     string ownerId = 12;
 }
 
@@ -69,7 +97,7 @@ message UpdateOrganisationInput {
     string address = 7;
     string numberOfEmployees = 8;
     string countryOfOperation = 9;
-    OrganisationType organisationType = 11;
+    OrganisationTypeEnum organisationType = 11;
 }
 
 message UpdateOrganisationRequest {

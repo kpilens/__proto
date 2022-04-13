@@ -1,0 +1,11 @@
+syntax = "proto3";
+package team;
+
+import "user.proto";
+import "organisation.proto";
+
+message Team {
+    string name = 1;
+  repeated User  members = 2;
+  Organisation  organisation = 3;
+}
