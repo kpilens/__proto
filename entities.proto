@@ -51,7 +51,7 @@ message Organisation {
   string createdAt = 12;
   string updatedAt = 13;
   string freeTrialExpirationDate = 14;
-  string isPaying = 15;
+  bool isPaying = 15;
   repeated User users = 16;
   repeated Team teams = 17;
   User owner = 18;
