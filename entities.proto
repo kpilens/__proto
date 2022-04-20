@@ -40,7 +40,7 @@ message Organisation {
   string name = 1;
   optional string registrationNumber = 2;
   optional string dataProtectionPolicyCountry = 3;
-  optional bool hasLawfulBasisToCollectData = 4;
+  bool hasLawfulBasisToCollectData = 4;
   optional string dataSubjects = 5;
   optional string purposeOfDataCollectionAndProcessing = 6;
   optional string address = 7;
