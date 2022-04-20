@@ -38,20 +38,20 @@ enum OrganisationTypeEnum {
 
 message Organisation {
   string name = 1;
-  string registrationNumber = 2;
-  string dataProtectionPolicyCountry = 3;
-  bool hasLawfulBasisToCollectData = 4;
-  string dataSubjects = 5;
-  string purposeOfDataCollectionAndProcessing = 6;
-  string address = 7;
-  string numberOfEmployees = 8;
-  string countryOfOperation = 9;
-  string email = 10;
-  OrganisationTypeEnum organisationType = 11;
-  string createdAt = 12;
-  string updatedAt = 13;
-  string freeTrialExpirationDate = 14;
-  bool isPaying = 15;
+  optional string registrationNumber = 2;
+  optional string dataProtectionPolicyCountry = 3;
+  optional bool hasLawfulBasisToCollectData = 4;
+  optional string dataSubjects = 5;
+  optional string purposeOfDataCollectionAndProcessing = 6;
+  optional string address = 7;
+  optional string numberOfEmployees = 8;
+  optional string countryOfOperation = 9;
+  optional string email = 10;
+  optional OrganisationTypeEnum organisationType = 11;
+  optional string createdAt = 12;
+  optional string updatedAt = 13;
+  optional string freeTrialExpirationDate = 14;
+  optional bool isPaying = 15;
   repeated User users = 16;
   repeated Team teams = 17;
   User owner = 18;
