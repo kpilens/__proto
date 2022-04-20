@@ -57,6 +57,7 @@ message Organisation {
   User owner = 18;
   repeated Workspace workspaces = 19;
   repeated Project projects = 20;
+  User author = 21;
 }
 
 message Project {
@@ -71,6 +72,8 @@ message Project {
   bool isArchived = 9;
   string createdAt = 10;
   string updatedAt = 11;
+  User author = 12;
+  User owner = 13;
 }
 
 message SurveyResponse {
@@ -91,12 +94,15 @@ message Survey {
   string updatedAt = 8;
   User author = 9;
   repeated SurveyResponse responses = 10;
+  User owner = 11;
 }
 
 message Team {
   string name = 1;
   repeated User members = 2;
   Organisation organisation = 3;
+  User author = 4;
+  User owner = 5;
 }
 
 message User {
@@ -128,4 +134,6 @@ message Workspace {
   bool isArchived = 6;
   string createdAt = 7;
   string updatedAt = 8;
+  User author = 9;
+  User owner = 10;
 }
