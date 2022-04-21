@@ -28,6 +28,7 @@ message Collaboration {
   CollaborationStatusEnum status = 6;
   optional string createdAt = 7;
   optional string updatedAt = 8;
+  string id = 9;
 }
 
 enum OrganisationTypeEnum {
@@ -54,6 +55,7 @@ message Organisation {
   bool hasRenewedSubscription = 15;
   string ownerId = 18;
   string authorId = 21;
+  string id = 22;
 }
 
 message Project {
@@ -69,6 +71,7 @@ message Project {
   string authorId = 12;
   string ownerId = 13;
   repeated string userIds = 14;
+  string id = 15;
 }
 
 message SurveyResponse {
@@ -80,6 +83,7 @@ message SurveyResponse {
   string workspaceId = 6;
   string organisationId = 7;
   string ownerId = 8;
+  string id = 9;
 }
 
 message Survey {
@@ -95,6 +99,7 @@ message Survey {
   string ownerId = 10;
   string workspaceId = 11;
   string organisationId = 12;
+  string id = 13;
 }
 
 message Team {
@@ -105,6 +110,7 @@ message Team {
   optional string createdAt = 5;
   optional string updatedAt = 6;
   repeated string memberIds = 7;
+  string id = 8;
 }
 
 message User {
@@ -129,6 +135,7 @@ message User {
   repeated string sharedProjectIds = 19;
   repeated string sharedOrganisationIds = 20;
   optional string ownedOrganisationId = 21;
+  string id = 22;
 }
 
 message Workspace {
@@ -141,4 +148,5 @@ message Workspace {
   optional string updatedAt = 7;
   string authorId = 8;
   string ownerId = 9;
+  string id = 10;
 }
