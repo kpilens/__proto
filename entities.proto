@@ -22,12 +22,12 @@ enum GuestRoleEnum {
 message Collaboration {
   CollaborationResourceEnum resource = 1;
   string resourceId = 2;
-  User guest = 3;
-  User host = 4;
+  string guestId = 3;
+  string hostId = 4;
   GuestRoleEnum guestRole = 5;
   CollaborationStatusEnum status = 6;
-  string createdAt = 7;
-  string updatedAt = 8;
+  optional string createdAt = 7;
+  optional string updatedAt = 8;
 }
 
 enum OrganisationTypeEnum {
@@ -51,89 +51,94 @@ message Organisation {
   optional string createdAt = 12;
   optional string updatedAt = 13;
   optional string freeTrialExpirationDate = 14;
-  optional bool isPaying = 15;
-  repeated User users = 16;
-  repeated Team teams = 17;
-  User owner = 18;
-  repeated Workspace workspaces = 19;
-  repeated Project projects = 20;
-  User author = 21;
+  bool hasRenewedSubscription = 15;
+  string ownerId = 18;
+  string authorId = 21;
 }
 
 message Project {
   string name = 1;
-  string description = 2;
-  Workspace workspace = 3;
-  string startDate = 4;
-  string endDate = 5;
-  repeated Survey surveys = 6;
-  Organisation organisation = 7;
-  repeated User users = 8;
+  optional string description = 2;
+  string workspaceId = 3;
+  optional string startDate = 4;
+  optional string endDate = 5;
+  string organisationId = 7;
   bool isArchived = 9;
-  string createdAt = 10;
-  string updatedAt = 11;
-  User author = 12;
-  User owner = 13;
+  optional string createdAt = 10;
+  optional string updatedAt = 11;
+  string authorId = 12;
+  string ownerId = 13;
+  repeated string userIds = 14;
 }
 
 message SurveyResponse {
-  Survey survey = 1;
+  string surveyId = 1;
   string response = 2;
-  string createdAt = 3;
-  string updatedAt = 4;
+  optional string createdAt = 3;
+  optional string updatedAt = 4;
+  string projectId = 5;
+  string workspaceId = 6;
+  string organisationId = 7;
+  string ownerId = 8;
 }
 
 message Survey {
   string name = 1;
   string schema = 2;
   string widgets = 3;
-  repeated Project project = 4;
-  string publishId = 5;
+  string projectId = 4;
+  optional string publishId = 5;
   bool isPublished = 6;
-  string createdAt = 7;
-  string updatedAt = 8;
-  User author = 9;
-  repeated SurveyResponse responses = 10;
-  User owner = 11;
+  optional string createdAt = 7;
+  optional string updatedAt = 8;
+  string authorId = 9;
+  string ownerId = 10;
+  string workspaceId = 11;
+  string organisationId = 12;
 }
 
 message Team {
   string name = 1;
-  repeated User members = 2;
-  Organisation organisation = 3;
-  User author = 4;
-  User owner = 5;
+  string organisationId = 2;
+  string authorId = 3;
+  string ownerId = 4;
+  optional string createdAt = 5;
+  optional string updatedAt = 6;
+  repeated string memberIds = 7;
 }
 
 message User {
   string firstname = 1;
   string lastname = 2;
   string email = 3;
-  string password = 4;
-  string title = 5;
-  bool isOwner = 6;
-  string createdAt = 7;
-  string updatedAt = 8;
+  optional string password = 4;
+  optional string title = 5;
+  bool isOrganisationOwner = 6;
+  optional string createdAt = 7;
+  optional string updatedAt = 8;
   bool hasVerifiedEmail = 9;
-  repeated Team teams = 10;
-  repeated Workspace workspaces = 11;
-  repeated Project projects = 12;
-  repeated Collaboration collaborationsSent = 13;
-  repeated Collaboration collaborationsReceived = 14;
-  string googleId = 15;
-  string facebookId = 16;
-  string linkedInId = 17;
+  repeated string teamIds = 10;
+  repeated string workspaceIds = 11;
+  repeated string projectIds = 12;
+  repeated string collaborationSentIds = 13;
+  repeated string collaborationReceivedIds = 14;
+  optional string googleId = 15;
+  optional string facebookId = 16;
+  optional string linkedInId = 17;
+  repeated string sharedWorkspaceIds = 18;
+  repeated string sharedProjectIds = 19;
+  repeated string sharedOrganisationIds = 20;
+  optional string ownedOrganisationId = 21;
 }
 
 message Workspace {
   string name = 1;
-  string description = 2;
-  Organisation organisation = 3;
-  repeated Project projects = 4;
-  repeated User users = 5;
-  bool isArchived = 6;
-  string createdAt = 7;
-  string updatedAt = 8;
-  User author = 9;
-  User owner = 10;
+  optional string description = 2;
+  string organisationId = 3;
+  repeated string userIds = 4;
+  bool isArchived = 5;
+  optional string createdAt = 6;
+  optional string updatedAt = 7;
+  string authorId = 8;
+  string ownerId = 9;
 }
