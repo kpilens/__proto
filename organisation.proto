@@ -35,6 +35,7 @@ message CreateOrganisationRequest {
   string email = 10;
   entities.OrganisationTypeEnum organisationType = 11;
   string ownerId = 12;
+  string authorId = 13;
 }
 
 message CreateOrganisationResponse {
