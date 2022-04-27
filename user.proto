@@ -8,20 +8,18 @@ service UserService {
   rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
 }
 
-message GetUserRequest { UserWhereUniqueInput where = 1; }
-
-message GetUserResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  entities.User user = 3;
-}
-
-message UserWhereUniqueInput {
+message GetUserRequest {
   optional string id = 1;
   optional string email = 2;
   optional string googleId = 3;
   optional string facebookId = 4;
   optional string linkedInId = 5;
+}
+
+message GetUserResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  entities.User user = 3;
 }
 
 message CreateUserRequest {
