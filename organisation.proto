@@ -20,6 +20,9 @@ service OrganisationService {
 
   rpc GetOrganisation(GetOrganisationRequest)
       returns (GetOrganisationResponse) {}
+
+  rpc GetOrganisations(GetOrganisationsRequest)
+      returns (GetOrganisationsResponse) {}
 }
 
 message CreateOrganisationRequest {
