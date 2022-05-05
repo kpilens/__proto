@@ -5,7 +5,7 @@ import "entities.proto";
 
 service CollaborationService {
   rpc CreateCollaboration(CreateCollaborationRequest)
-      returns (CreateOrganisationResponse) {}
+      returns (CreateCollaborationResponse) {}
 
   rpc GetCollaboration(GetCollaborationRequest)
       returns (GetCollaborationResponse) {}
@@ -41,7 +41,7 @@ message CreateCollaborationRequest {
   entities.CollaborationResourceEnum resource = 8;
 }
 
-message CreateOrganisationResponse {
+message CreateCollaborationResponse {
   int32 status = 1;
   repeated string error = 2;
   string collaborationId = 3;
