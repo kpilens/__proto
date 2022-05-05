@@ -1,2 +1,72 @@
 syntax = "proto3";
 package project;
+
+import "entities.proto";
+
+service ProjectService {
+  rpc CreateProject(CreateProjectRequest) returns (CreateProjectResponse) {}
+
+  rpc GetProject(GetProjectRequest) returns (GetProjectResponse) {}
+
+  rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse) {}
+
+  rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectResponse) {}
+}
+
+message ProjectWhereUniqueInput { string id = 1; }
+message UpdateProjectInput {
+  optional string name = 1;
+  optional string description = 2;
+  optional string workspaceId = 3;
+  optional string startDate = 4;
+  optional string endDate = 5;
+  optional string organisationId = 6;
+  optional string authorId = 7;
+  optional string ownerId = 8;
+  repeated string userIds = 9;
+}
+
+message CreateProjectRequest {
+  string name = 1;
+  optional string description = 2;
+  string workspaceId = 3;
+  optional string startDate = 4;
+  optional string endDate = 5;
+  string organisationId = 6;
+  string authorId = 7;
+  string ownerId = 8;
+  repeated string userIds = 9;
+}
+
+message CreateProjectResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  string projectId = 3;
+}
+
+message GetProjectRequest { ProjectWhereUniqueInput where = 1; }
+
+message GetProjectResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  entities.Project project = 3;
+}
+
+message UpdateProjectRequest {
+  ProjectWhereUniqueInput where = 1;
+  UpdateProjectInput data = 2;
+}
+
+message UpdateProjectResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  entities.Project project = 3;
+}
+
+message DeleteProjectRequest { ProjectWhereUniqueInput where = 1; }
+
+message DeleteProjectResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  string projectId = 3;
+}

@@ -1,2 +1,75 @@
 syntax = "proto3";
 package collaboration;
+
+import "entities.proto";
+
+service CollaborationService {
+  rpc CreateCollaboration(CreateCollaborationRequest)
+      returns (CreateOrganisationResponse) {}
+
+  rpc GetCollaboration(GetCollaborationRequest)
+      returns (GetCollaborationResponse) {}
+
+  rpc UpdateCollaboration(UpdateCollaborationRequest)
+      returns (UpdateCollaborationResponse) {}
+
+  rpc DeleteCollaboration(DeleteCollaborationRequest)
+      returns (DeleteCollaborationResponse) {}
+}
+
+message CollaborationWhereUniqueInput { string id = 1; }
+
+message UpdateCollaborationInput {
+  optional string resourceId = 1;
+  optional string guestId = 2;
+  optional string hostId = 3;
+  optional entities.GuestRoleEnum guestRole = 4;
+  optional entities.CollaborationStatusEnum status = 5;
+  optional string createdAt = 6;
+  optional string updatedAt = 7;
+  optional entities.CollaborationResourceEnum resource = 8;
+}
+
+message CreateCollaborationRequest {
+  string resourceId = 1;
+  string guestId = 2;
+  string hostId = 3;
+  entities.GuestRoleEnum guestRole = 4;
+  entities.CollaborationStatusEnum status = 5;
+  optional string createdAt = 6;
+  optional string updatedAt = 7;
+  entities.CollaborationResourceEnum resource = 8;
+}
+
+message CreateOrganisationResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  string collaborationId = 3;
+}
+
+message GetCollaborationRequest { CollaborationWhereUniqueInput where = 1; }
+
+message GetCollaborationResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  entities.Collaboration collaboration = 3;
+}
+
+message UpdateCollaborationRequest {
+  CollaborationWhereUniqueInput where = 1;
+  UpdateCollaborationInput data = 2;
+}
+
+message UpdateCollaborationResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  entities.Collaboration collaboration = 3;
+}
+
+message DeleteCollaborationRequest { CollaborationWhereUniqueInput where = 1; }
+
+message DeleteCollaborationResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  string collaborationId = 3;
+}

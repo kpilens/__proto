@@ -1,2 +1,60 @@
 syntax = "proto3";
 package survey;
+
+import "entities.proto";
+
+service Survey {
+  rpc CreateSurvey(CreateSurveyRequest) returns (CreateSurveyResponse) {}
+
+  rpc GetSurvey(GetSurveyRequest) returns (GetSurveyResponse) {}
+
+  rpc UpdateSurvey(UpdateSurveyRequest) returns (UpdateSurveyResponse) {}
+
+  rpc DeleteSurvey(DeleteSurveyRequest) returns (DeleteSurveyResponse) {}
+}
+
+message SurveyWhereUniqueInput {
+  optional string id = 1;
+  optional string publishId = 2;
+}
+
+message CreateSurveyRequest {
+  string name = 1;
+  string schema = 2;
+  string widgets = 3;
+  string projectId = 4;
+  string authorId = 5;
+  string ownerId = 6;
+  string workspaceId = 7;
+  string organisationId = 8;
+}
+
+message CreateSurveyResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  string surveyId = 3;
+}
+
+message GetSurveyRequest { SurveyWhereUniqueInput where = 1; }
+
+message GetSurveyResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  entities.Survey survey = 3;
+}
+
+message UpdateSurveyRequest { SurveyWhereUniqueInput where = 1; }
+
+message UpdateSurveyResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  entities.Survey survey = 3;
+}
+
+message DeleteSurveyRequest { SurveyWhereUniqueInput where = 1; }
+
+message DeleteSurveyResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  string surveyId = 3;
+}
