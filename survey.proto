@@ -3,7 +3,7 @@ package survey;
 
 import "entities.proto";
 
-service Survey {
+service SurveyService {
   rpc CreateSurvey(CreateSurveyRequest) returns (CreateSurveyResponse) {}
 
   rpc GetSurvey(GetSurveyRequest) returns (GetSurveyResponse) {}
