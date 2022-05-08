@@ -36,8 +36,6 @@ message CreateCollaborationRequest {
   string hostId = 3;
   entities.GuestRoleEnum guestRole = 4;
   entities.CollaborationStatusEnum status = 5;
-  optional string createdAt = 6;
-  optional string updatedAt = 7;
   entities.CollaborationResourceEnum resource = 8;
 }
 
