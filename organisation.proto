@@ -64,16 +64,16 @@ message OrganisationWhereUniqueInput {
 }
 
 message UpdateOrganisationInput {
-  string name = 1;
-  string registrationNumber = 2;
-  string dataProtectionPolicyCountry = 3;
-  bool hasLawfulBasisToCollectData = 4;
-  string dataSubjects = 5;
-  string purposeOfDataCollectionAndProcessing = 6;
-  string address = 7;
-  string numberOfEmployees = 8;
-  string countryOfOperation = 9;
-  entities.OrganisationTypeEnum organisationType = 11;
+  optional string name = 1;
+  optional string registrationNumber = 2;
+  optional string dataProtectionPolicyCountry = 3;
+  optional bool hasLawfulBasisToCollectData = 4;
+  optional string dataSubjects = 5;
+  optional string purposeOfDataCollectionAndProcessing = 6;
+  optional string address = 7;
+  optional string numberOfEmployees = 8;
+  optional string countryOfOperation = 9;
+  optional entities.OrganisationTypeEnum organisationType = 11;
 }
 
 message UpdateOrganisationRequest {
