@@ -29,6 +29,17 @@ message CreateSurveyRequest {
   string organisationId = 8;
 }
 
+message UpdateSurveyInput {
+  optional string name = 1;
+  optional string schema = 2;
+  optional string widgets = 3;
+  optional string projectId = 4;
+  optional string authorId = 5;
+  optional string ownerId = 6;
+  optional string workspaceId = 7;
+  optional string organisationId = 8;
+}
+
 message CreateSurveyResponse {
   int32 status = 1;
   repeated string error = 2;
@@ -43,7 +54,10 @@ message GetSurveyResponse {
   entities.Survey survey = 3;
 }
 
-message UpdateSurveyRequest { SurveyWhereUniqueInput where = 1; }
+message UpdateSurveyRequest {
+  SurveyWhereUniqueInput where = 1;
+  UpdateSurveyInput data = 2;
+}
 
 message UpdateSurveyResponse {
   int32 status = 1;
