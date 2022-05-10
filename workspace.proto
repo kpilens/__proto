@@ -2,7 +2,7 @@ syntax = "proto3";
 package workspace;
 import "entities.proto";
 
-service Workspace {
+service WorkspaceService {
   rpc CreateWorkspace(CreateWorkspaceRequest)
       returns (CreateWorkspaceResponse) {}
 

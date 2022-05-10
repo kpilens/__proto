@@ -3,7 +3,7 @@ package team;
 
 import "entities.proto";
 
-service Team {
+service TeamService {
   rpc CreateTeam(CreateTeamRequest) returns (CreateTeamResponse) {}
 
   rpc GetTeam(GetTeamRequest) returns (GetTeamResponse) {}
