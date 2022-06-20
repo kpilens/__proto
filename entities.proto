@@ -153,9 +153,9 @@ message Workspace {
 
 // <--- Find option interfaces ---->
 
-message FindManyOptions {
-  repeated Struct = 1;
-  optional map<string, string> order = 2;
-  optional int64 skip = 3;
-  optional int64 take = 4;
-}
+// message FindManyOptions {
+//   repeated Struct = 1;
+//   optional map<string, string> order = 2;
+//   optional int64 skip = 3;
+//   optional int64 take = 4;
+// }
