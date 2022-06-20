@@ -8,11 +8,12 @@ import "google/protobuf/struct.proto";
 service SurveyService {
   rpc CreateSurvey(CreateSurveyRequest) returns (CreateSurveyResponse) {}
 
-  rpc GetSurvey(GetSurveyRequest) returns (GetSurveyResponse) {}
-
   rpc GetSurveys(GetSurveysRequest) returns (GetSurveysResponse) {}
 
   rpc GetSurveyById(GetSurveyByIdRequest) returns (GetSurveyResponse) {}
+
+  rpc GetSurveyByPublishId(GetSurveyByPublishIdRequest)
+      returns (GetSurveyResponse) {}
 
   rpc UpdateSurvey(UpdateSurveyRequest) returns (UpdateSurveyResponse) {}
 
@@ -55,6 +56,8 @@ message CreateSurveyResponse {
 message GetSurveyRequest { SurveyWhereUniqueInput where = 1; }
 
 message GetSurveyByIdRequest { string id = 1; }
+
+message GetSurveyByPublishIdRequest { string publishId = 1; }
 
 message GetSurveyResponse {
   int32 status = 1;
