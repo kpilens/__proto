@@ -1,13 +1,8 @@
 syntax = "proto3";
 package interfaces;
+import "google/protobuf/any.proto";
 
 message PaginateOptions {
-  oneof limit {
-    string limitString = 1;
-    int32 limitInteger = 2;
-  }
-  oneof page {
-    string pageString = 3;
-    int64 pageInteger = 4;
-  };
+  google.protobuf.Any limit = 1;
+  google.protobuf.Any page = 2;
 }
