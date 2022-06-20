@@ -89,5 +89,5 @@ message GetSurveysRequest {
 message GetSurveysResponse {
   int32 status = 1;
   repeated string error = 2;
-  optional google.protobuf.Struct surveys = 3;
+  optional google.protobuf.Value surveys = 3;
 }
