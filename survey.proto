@@ -2,7 +2,6 @@ syntax = "proto3";
 package survey;
 
 import "entities.proto";
-import "interfaces.proto";
 
 import "google/protobuf/struct.proto";
 
