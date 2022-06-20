@@ -8,6 +8,8 @@ service SurveyService {
 
   rpc GetSurvey(GetSurveyRequest) returns (GetSurveyResponse) {}
 
+  rpc GetSurveyById(GetSurveyByIdRequest) returns (GetSurveyResponse) {}
+
   rpc UpdateSurvey(UpdateSurveyRequest) returns (UpdateSurveyResponse) {}
 
   rpc DeleteSurvey(DeleteSurveyRequest) returns (DeleteSurveyResponse) {}
@@ -47,6 +49,8 @@ message CreateSurveyResponse {
 }
 
 message GetSurveyRequest { SurveyWhereUniqueInput where = 1; }
+
+message GetSurveyByIdRequest { string id = 1; }
 
 message GetSurveyResponse {
   int32 status = 1;
