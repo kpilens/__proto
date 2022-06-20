@@ -11,7 +11,7 @@ service SurveyService {
 
   rpc GetSurvey(GetSurveyRequest) returns (GetSurveyResponse) {}
 
-  rpc GetSurveys(GetSurveysRequest) returns (google.protobuf.Struct) {}
+  rpc GetSurveys(GetSurveysRequest) returns (GetSurveysResponse) {}
 
   rpc GetSurveyById(GetSurveyByIdRequest) returns (GetSurveyResponse) {}
 
@@ -85,4 +85,10 @@ message DeleteSurveyResponse {
 message GetSurveysRequest {
   interfaces.PaginateOptions paginateOptions = 1;
   optional entities.Survey findOptions = 2;
+}
+
+message GetSurveysResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  optional google.protobuf.Struct surveys = 3;
 }
