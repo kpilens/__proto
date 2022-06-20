@@ -83,7 +83,7 @@ message DeleteSurveyResponse {
 }
 
 message GetSurveysRequest {
-  interfaces.PaginateOptions paginateOptions = 1;
+  google.protobuf.Struct paginateOptions = 1;
   optional entities.Survey findOptions = 2;
 }
 
