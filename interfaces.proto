@@ -2,6 +2,12 @@ syntax = "proto3";
 package interfaces;
 
 message PaginateOptions {
-  int32 limit = 1;
-  int64 page = 2;
+  oneof limit {
+    string limitString = 1;
+    int32 limitInteger = 2;
+  }
+  oneof page {
+    string pageString = 3;
+    int64 pageInteger = 4;
+  };
 }
