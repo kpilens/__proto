@@ -82,8 +82,8 @@ message DeleteSurveyResponse {
 }
 
 message GetSurveysRequest {
-  google.protobuf.Struct paginateOptions = 1;
-  google.protobuf.Struct findOptions = 2;
+  google.protobuf.Value paginateOptions = 1;
+  google.protobuf.Value findOptions = 2;
 }
 
 message GetSurveysResponse {
