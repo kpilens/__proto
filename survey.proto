@@ -48,6 +48,7 @@ message UpdateSurveyInput {
   optional string ownerId = 6;
   optional string workspaceId = 7;
   optional string organisationId = 8;
+  optional bool isPublished = 9;
 }
 
 message CreateSurveyResponse {
