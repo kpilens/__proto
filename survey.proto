@@ -84,23 +84,9 @@ message DeleteSurveyResponse {
   string surveyId = 3;
 }
 
-message StringPaginationOptions {
-  string limit = 1;
-  string page = 2;
-}
-
-message IntegerPaginationOptions {
-  int32 limit = 1;
-  int64 page = 2;
-}
-
 message GetSurveysRequest {
-
-  oneof paginateOptions {
-    StringPaginationOptions stringPaginationOptions = 1;
-    IntegerPaginationOptions integerPaginationOptions = 2;
-  }
-  google.protobuf.Struct findOptions = 3;
+  google.protobuf.Struct paginateOptions = 1;
+  google.protobuf.Struct findOptions = 2;
 }
 
 message GetSurveysResponse {
