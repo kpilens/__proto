@@ -31,10 +31,6 @@ message UpdateSurveyResponseInput {
 message CreateSurveyResponseRequest {
   string surveyId = 1;
   string response = 2;
-  string projectId = 3;
-  string workspaceId = 4;
-  string organisationId = 5;
-  string ownerId = 6;
 }
 
 message CreateSurveyResponseResponse {
