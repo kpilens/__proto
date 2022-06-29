@@ -67,6 +67,9 @@ message CreateUserRequest {
   optional string googleId = 6;
   optional string facebookId = 7;
   optional string linkedInId = 8;
+  optional string defaultOrganisationId = 9;
+  optional string defaultWorkspaceId = 10;
+  optional string defaultProjectId = 11;
 }
 
 message CreateUserResponse {

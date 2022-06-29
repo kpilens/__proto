@@ -136,6 +136,9 @@ message User {
   repeated string sharedOrganisationIds = 20;
   optional string ownedOrganisationId = 21;
   string id = 22;
+  optional string defaultOrganisationId = 23;
+  optional string defaultWorkspaceId = 24;
+  optional string defaultProjectId = 25;
 }
 
 message Workspace {
