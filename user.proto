@@ -2,6 +2,7 @@ syntax = "proto3";
 package user;
 
 import "entities.proto";
+import "google/protobuf/struct.proto";
 
 service UserService {
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
@@ -70,6 +71,7 @@ message CreateUserRequest {
   optional string defaultOrganisationId = 9;
   optional string defaultWorkspaceId = 10;
   optional string defaultProjectId = 11;
+  google.protobuf.Struct defaultUserSettings = 12;
 }
 
 message CreateUserResponse {
