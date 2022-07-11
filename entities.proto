@@ -1,5 +1,6 @@
 syntax = "proto3";
 package entities;
+import "google/protobuf/struct.proto";
 
 enum CollaborationResourceEnum {
   PROJECT = 0;
@@ -139,6 +140,7 @@ message User {
   optional string defaultOrganisationId = 23;
   optional string defaultWorkspaceId = 24;
   optional string defaultProjectId = 25;
+  google.protobuf.Struct userSettings = 26;
 }
 
 message Workspace {
