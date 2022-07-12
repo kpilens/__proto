@@ -17,12 +17,12 @@ message UserWhereUniqueInput {
 }
 
 message UpdateUserInput {
-  string firstname = 1;
-  string lastname = 2;
-  string email = 3;
+  optional string firstname = 1;
+  optional string lastname = 2;
+  optional string email = 3;
   optional string title = 5;
-  bool isOrganisationOwner = 6;
-  bool hasVerifiedEmail = 7;
+  optional bool isOrganisationOwner = 6;
+  optional bool hasVerifiedEmail = 7;
   repeated string teamIds = 8;
   repeated string workspaceIds = 9;
   repeated string projectIds = 10;
@@ -38,7 +38,7 @@ message UpdateUserInput {
   optional string defaultOrganisationId = 20;
   optional string defaultWorkspaceId = 21;
   optional string defaultProjectId = 22;
-  google.protobuf.Struct userSettings = 23;
+  optional google.protobuf.Struct userSettings = 23;
 }
 
 message UpdateUserRequest {
