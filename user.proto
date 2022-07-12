@@ -17,13 +17,28 @@ message UserWhereUniqueInput {
 }
 
 message UpdateUserInput {
-  optional string firstname = 1;
-  optional string lastname = 2;
+  string firstname = 1;
+  string lastname = 2;
+  string email = 3;
   optional string title = 5;
-  optional bool hasVerifiedEmail = 9;
-  optional string googleId = 15;
-  optional string facebookId = 16;
-  optional string linkedInId = 17;
+  bool isOrganisationOwner = 6;
+  bool hasVerifiedEmail = 7;
+  repeated string teamIds = 8;
+  repeated string workspaceIds = 9;
+  repeated string projectIds = 10;
+  repeated string collaborationSentIds = 11;
+  repeated string collaborationReceivedIds = 12;
+  optional string googleId = 13;
+  optional string facebookId = 14;
+  optional string linkedInId = 15;
+  repeated string sharedWorkspaceIds = 16;
+  repeated string sharedProjectIds = 17;
+  repeated string sharedOrganisationIds = 18;
+  optional string ownedOrganisationId = 19;
+  optional string defaultOrganisationId = 20;
+  optional string defaultWorkspaceId = 21;
+  optional string defaultProjectId = 22;
+  google.protobuf.Struct userSettings = 23;
 }
 
 message UpdateUserRequest {
