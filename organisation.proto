@@ -62,7 +62,8 @@ message OrganisationWhereUniqueInput {
   optional string email = 3;
 }
 
-message UpdateOrganisationInput {
+message UpdateOrganisationRequest {
+
   optional string name = 1;
   optional string registrationNumber = 2;
   optional string dataProtectionPolicyCountry = 3;
@@ -73,11 +74,7 @@ message UpdateOrganisationInput {
   optional string numberOfEmployees = 8;
   optional string countryOfOperation = 9;
   optional entities.OrganisationTypeEnum organisationType = 11;
-}
-
-message UpdateOrganisationRequest {
-  OrganisationWhereUniqueInput where = 1;
-  UpdateOrganisationInput data = 2;
+  string id = 12;
 }
 
 message UpdateOrganisationResponse {
