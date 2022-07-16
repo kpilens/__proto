@@ -63,7 +63,6 @@ message OrganisationWhereUniqueInput {
 }
 
 message UpdateOrganisationRequest {
-
   optional string name = 1;
   optional string registrationNumber = 2;
   optional string dataProtectionPolicyCountry = 3;
@@ -101,9 +100,7 @@ message DeleteOrganisationResponse {
   string organisationId = 3;
 }
 
-message DeleteOrganisationsRequest {
-  repeated OrganisationWhereUniqueInput where = 1;
-}
+message DeleteOrganisationsRequest { repeated string organisationIds = 1; }
 
 message DeleteOrganisationsResponse {
   int32 status = 1;
