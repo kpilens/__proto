@@ -74,6 +74,10 @@ message UpdateOrganisationRequest {
   optional string countryOfOperation = 9;
   optional entities.OrganisationTypeEnum organisationType = 11;
   string id = 12;
+  optional bool hasRenewedSubscription = 13;
+  optional string ownerId = 14;
+  optional string authorId = 15;
+  optional string email = 16;
 }
 
 message UpdateOrganisationResponse {
