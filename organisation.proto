@@ -1,6 +1,6 @@
 syntax = "proto3";
 package organisation;
-
+import "google/protobuf/struct.proto";
 import "entities.proto";
 
 service OrganisationService {
@@ -20,9 +20,8 @@ service OrganisationService {
 
   rpc GetOrganisation(GetOrganisationRequest)
       returns (GetOrganisationResponse) {}
-
-  // rpc GetOrganisations(GetOrganisationsRequest)
-  //     returns (GetOrganisationsResponse) {}
+  rpc GetOrganisations(GetOrganisationsRequest)
+      returns (GetOrganisationsResponse) {}
 }
 
 message CreateOrganisationRequest {
@@ -121,4 +120,15 @@ message GetOrganisationResponse {
   int32 status = 1;
   repeated string error = 2;
   entities.Organisation organisation = 3;
+}
+
+message GetOrganisationsRequest {
+  google.protobuf.Struct paginateOptions = 1;
+  google.protobuf.Struct findOptions = 2;
+}
+
+message GetOrganisationsResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  google.protobuf.Struct organisations = 3;
 }
