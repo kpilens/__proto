@@ -88,6 +88,7 @@ message CreateUserRequest {
   optional string defaultWorkspaceId = 10;
   optional string defaultProjectId = 11;
   google.protobuf.Struct defaultUserSettings = 12;
+  string id = 13; // this should be the authentication service user ID
 }
 
 message CreateUserResponse {
