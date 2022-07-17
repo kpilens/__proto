@@ -1,6 +1,7 @@
 syntax = "proto3";
 package entities;
 import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
 
 enum CollaborationResourceEnum {
   PROJECT = 0;
@@ -50,8 +51,8 @@ message Organisation {
   optional string countryOfOperation = 9;
   optional string email = 10;
   optional OrganisationTypeEnum organisationType = 11;
-  optional string createdAt = 12;
-  optional string updatedAt = 13;
+  optional google.protobuf.Timestamp createdAt = 12;
+  optional google.protobuf.Timestamp updatedAt = 13;
   optional string freeTrialExpirationDate = 14;
   bool hasRenewedSubscription = 15;
   string ownerId = 18;
