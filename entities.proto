@@ -1,6 +1,7 @@
 syntax = "proto3";
 package entities;
 import "google/protobuf/struct.proto";
+import "google/protobuf/wrappers.proto";
 
 enum CollaborationResourceEnum {
   PROJECT = 0;
@@ -42,7 +43,7 @@ message Organisation {
   string name = 1;
   optional string registrationNumber = 2;
   optional string dataProtectionPolicyCountry = 3;
-  bool hasLawfulBasisToCollectData = 4;
+  google.protobuf.BoolValue hasLawfulBasisToCollectData = 4;
   optional string dataSubjects = 5;
   optional string purposeOfDataCollectionAndProcessing = 6;
   optional string address = 7;
@@ -53,7 +54,7 @@ message Organisation {
   optional string createdAt = 12;
   optional string updatedAt = 13;
   optional string freeTrialExpirationDate = 14;
-  bool hasRenewedSubscription = 15;
+  google.protobuf.BoolValue hasRenewedSubscription = 15;
   string ownerId = 18;
   string authorId = 21;
   string id = 22;
