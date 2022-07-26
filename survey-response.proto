@@ -9,11 +9,17 @@ service SurveyResponseService {
   rpc CreateSurveyResponse(CreateSurveyResponseRequest)
       returns (CreateSurveyResponseResponse) {}
 
-  rpc GetSurveyResponse(GetSurveyResponseRequest)
-      returns (GetSurveyResponseResponse) {}
+  rpc GetSurveyResponseData(GetSurveyResponseDataRequest)
+      returns (GetSurveyResponseDataResponse) {}
 
-  rpc GetManySurveyResponses(GetManySurveyResponsesRequest)
-      returns (GetManySurveyResponsesResponse) {}
+  rpc GetSurveyResponseBase64(GetSurveyResponseBase64Request)
+      returns (GetSurveyResponseBase64Response) {}
+
+  rpc GetManySurveyResponsesData(GetManySurveyResponsesDataRequest)
+      returns (GetManySurveyResponsesDataResponse) {}
+
+  rpc GetManySurveyResponsesBase64(GetManySurveyResponsesBase64Request)
+      returns (GetManySurveyResponsesBase64Response) {}
 }
 
 message CreateSurveyResponseRequest {
@@ -27,21 +33,39 @@ message CreateSurveyResponseResponse {
   string surveyResponseId = 3;
 }
 
-message GetSurveyResponseRequest { string id = 1; }
-
-message GetSurveyResponseResponse {
+message GetSurveyResponseDataRequest { string id = 1; }
+message GetSurveyResponseDataResponse {
   int32 status = 1;
   repeated string error = 2;
-  entities.SurveyResponse surveyResponse = 3;
+  google.protobuf.Struct surveyResponseData = 3;
 }
 
-message GetManySurveyResponsesRequest {
+message GetSurveyResponseBase64Request { string id = 1; }
+
+message GetSurveyResponseBase64Response {
+  int32 status = 1;
+  repeated string error = 2;
+  entities.SurveyResponse surveyResponseBase64 = 3;
+}
+
+message GetManySurveyResponsesDataRequest {
   google.protobuf.Struct paginateOptions = 1;
   google.protobuf.Struct findOptions = 2;
 }
 
-message GetManySurveyResponsesResponse {
+message GetManySurveyResponsesDataResponse {
   int32 status = 1;
   repeated string error = 2;
-  google.protobuf.Struct surveyResponses = 3;
+  google.protobuf.Struct surveyResponsesData = 3;
+}
+
+message GetManySurveyResponsesBase64Request {
+  google.protobuf.Struct paginateOptions = 1;
+  google.protobuf.Struct findOptions = 2;
+}
+
+message GetManySurveyResponsesBase64Response {
+  int32 status = 1;
+  repeated string error = 2;
+  google.protobuf.Struct surveyResponsesBase64 = 3;
 }
