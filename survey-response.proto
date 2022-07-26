@@ -3,6 +3,8 @@ package survey_response;
 
 import "entities.proto";
 
+import "google/protobuf/struct.proto";
+
 service SurveyResponseService {
   rpc CreateSurveyResponse(CreateSurveyResponseRequest)
       returns (CreateSurveyResponseResponse) {}
@@ -10,22 +12,8 @@ service SurveyResponseService {
   rpc GetSurveyResponse(GetSurveyResponseRequest)
       returns (GetSurveyResponseResponse) {}
 
-  rpc UpdateSurveyResponse(UpdateSurveyResponseRequest)
-      returns (UpdateSurveyResponseResponse) {}
-
-  rpc DeleteSurveyResponse(DeleteSurveyResponseRequest)
-      returns (DeleteSurveyResponseResponse) {}
-}
-
-message SurveyResponseWhereUniqueInput { string id = 1; }
-
-message UpdateSurveyResponseInput {
-  optional string surveyId = 1;
-  optional string response = 2;
-  optional string projectId = 3;
-  optional string workspaceId = 4;
-  optional string organisationId = 5;
-  optional string ownerId = 6;
+  rpc GetManySurveyResponses(GetManySurveyResponsesRequest)
+      returns (GetManySurveyResponsesResponse) {}
 }
 
 message CreateSurveyResponseRequest {
@@ -39,7 +27,7 @@ message CreateSurveyResponseResponse {
   string surveyResponseId = 3;
 }
 
-message GetSurveyResponseRequest { SurveyResponseWhereUniqueInput where = 1; }
+message GetSurveyResponseRequest { string id = 1; }
 
 message GetSurveyResponseResponse {
   int32 status = 1;
@@ -47,23 +35,13 @@ message GetSurveyResponseResponse {
   entities.SurveyResponse surveyResponse = 3;
 }
 
-message UpdateSurveyResponseRequest {
-  SurveyResponseWhereUniqueInput where = 1;
-  UpdateSurveyResponseInput data = 2;
+message GetManySurveyResponsesRequest {
+  google.protobuf.Struct paginateOptions = 1;
+  google.protobuf.Struct findOptions = 2;
 }
 
-message UpdateSurveyResponseResponse {
+message GetManySurveyResponsesResponse {
   int32 status = 1;
   repeated string error = 2;
-  string surveyResponseId = 3;
-}
-
-message DeleteSurveyResponseRequest {
-  SurveyResponseWhereUniqueInput where = 1;
-}
-
-message DeleteSurveyResponseResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string surveyResponseId = 3;
+  google.protobuf.Struct surveyResponses = 3;
 }
