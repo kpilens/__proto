@@ -60,7 +60,7 @@ message UpdateWorkspaceRequest {
 message UpdateWorkspaceResponse {
   int32 status = 1;
   repeated string error = 2;
-  entities.Workspace workspace = 3;
+  string workspaceId = 3;
 }
 
 message DeleteWorkspaceRequest { WorkspaceWhereUniqueInput where = 1; }

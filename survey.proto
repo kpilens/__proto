@@ -77,7 +77,7 @@ message UpdateSurveyRequest {
 message UpdateSurveyResponse {
   int32 status = 1;
   repeated string error = 2;
-  entities.Survey survey = 3;
+  string surveyId = 3;
 }
 
 message DeleteSurveyRequest { SurveyWhereUniqueInput where = 1; }

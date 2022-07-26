@@ -61,7 +61,7 @@ message UpdateCollaborationRequest {
 message UpdateCollaborationResponse {
   int32 status = 1;
   repeated string error = 2;
-  entities.Collaboration collaboration = 3;
+  string collaborationId = 3;
 }
 
 message DeleteCollaborationRequest { CollaborationWhereUniqueInput where = 1; }

@@ -53,7 +53,7 @@ message UpdateTeamRequest {
 message UpdateTeamResponse {
   int32 status = 1;
   repeated string error = 2;
-  entities.Team team = 3;
+  string teamId = 3;
 }
 
 message DeleteTeamRequest { TeamWhereUniqueInput where = 1; }

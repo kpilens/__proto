@@ -55,7 +55,7 @@ message UpdateSurveyResponseRequest {
 message UpdateSurveyResponseResponse {
   int32 status = 1;
   repeated string error = 2;
-  entities.SurveyResponse surveyResponse = 3;
+  string surveyResponseId = 3;
 }
 
 message DeleteSurveyResponseRequest {
