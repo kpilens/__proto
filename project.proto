@@ -62,7 +62,7 @@ message UpdateProjectRequest {
 message UpdateProjectResponse {
   int32 status = 1;
   repeated string error = 2;
-  entities.Project project = 3;
+  string projectId = 3;
 }
 
 message DeleteProjectRequest { ProjectWhereUniqueInput where = 1; }
