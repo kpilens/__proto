@@ -2,6 +2,7 @@ syntax = "proto3";
 package collaboration;
 
 import "entities.proto";
+import "google/protobuf/struct.proto";
 
 service CollaborationService {
   rpc CreateCollaboration(CreateCollaborationRequest)
@@ -15,6 +16,9 @@ service CollaborationService {
 
   rpc DeleteCollaboration(DeleteCollaborationRequest)
       returns (DeleteCollaborationResponse) {}
+
+  rpc GetCollaborations(GetCollaborationsRequest)
+      returns (GetCollaborationsResponse) {}
 }
 
 message CollaborationWhereUniqueInput { string id = 1; }
@@ -70,4 +74,15 @@ message DeleteCollaborationResponse {
   int32 status = 1;
   repeated string error = 2;
   string collaborationId = 3;
+}
+
+message GetCollaborationsRequest {
+  google.protobuf.Struct paginateOptions = 1;
+  google.protobuf.Struct findOptions = 2;
+}
+
+message GetCollaborationsResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  google.protobuf.Struct collaborations = 3;
 }
