@@ -24,8 +24,7 @@ service SurveyResponseService {
 
 message CreateSurveyResponseRequest {
   string surveyId = 1;
-  string workspace = 2;
-  string response = 3;
+  string response = 2;
 }
 message CreateSurveyResponseResponse {
   int32 status = 1;
