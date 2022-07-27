@@ -34,7 +34,7 @@ message CreateSurveyResponseResponse {
 
 message GetSurveyResponseDataRequest {
   string surveyId = 1;
-  string workspace = 2;
+  string workspaceId = 2;
   string responseId = 3;
 }
 message GetSurveyResponseDataResponse {
