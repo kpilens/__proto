@@ -101,6 +101,7 @@ message Survey {
   string workspaceId = 11;
   string organisationId = 12;
   string id = 13;
+  optional string previewImage = 14
 }
 
 message Team {

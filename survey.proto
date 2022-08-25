@@ -50,6 +50,7 @@ message UpdateSurveyInput {
   optional string organisationId = 8;
   optional bool isPublished = 9;
   optional string publishId = 10;
+  optional string previewImage = 11;
 }
 
 message CreateSurveyResponse {
