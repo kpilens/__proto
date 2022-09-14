@@ -53,11 +53,7 @@ message UpdateSurveyInput {
   optional string previewImage = 11;
 }
 
-message CreateSurveyResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string surveyId = 3;
-}
+message CreateSurveyResponse { string surveyId = 3; }
 
 message GetSurveyRequest { SurveyWhereUniqueInput where = 1; }
 
@@ -65,46 +61,26 @@ message GetSurveyByIdRequest { string id = 1; }
 
 message GetSurveyByPublishIdRequest { string publishId = 1; }
 
-message GetSurveyResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  entities.Survey survey = 3;
-}
+message GetSurveyResponse { entities.Survey survey = 3; }
 
 message UpdateSurveyRequest {
   SurveyWhereUniqueInput where = 1;
   UpdateSurveyInput data = 2;
 }
 
-message UpdateSurveyResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string surveyId = 3;
-}
+message UpdateSurveyResponse { string surveyId = 3; }
 
 message DeleteSurveyRequest { SurveyWhereUniqueInput where = 1; }
 
-message DeleteSurveyResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string surveyId = 3;
-}
+message DeleteSurveyResponse { string surveyId = 3; }
 
 message DeleteManySurveysRequest { repeated string surveyIds = 1; }
 
-message DeleteManySurveysResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  repeated string surveyIds = 3;
-}
+message DeleteManySurveysResponse { repeated string surveyIds = 3; }
 
 message GetSurveysRequest {
   google.protobuf.Struct paginateOptions = 1;
   google.protobuf.Struct findOptions = 2;
 }
 
-message GetSurveysResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  google.protobuf.Struct surveys = 3;
-}
+message GetSurveysResponse { google.protobuf.Struct surveys = 3; }

@@ -34,46 +34,26 @@ message CreateTeamRequest {
   repeated string memberIds = 5;
 }
 
-message CreateTeamResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string teamId = 3;
-}
+message CreateTeamResponse { string teamId = 3; }
 
 message GetTeamRequest { TeamWhereUniqueInput where = 1; }
 
-message GetTeamResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  entities.Team team = 3;
-}
+message GetTeamResponse { entities.Team team = 3; }
 
 message UpdateTeamRequest {
   TeamWhereUniqueInput where = 1;
   UpdateTeamInput data = 2;
 }
 
-message UpdateTeamResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string teamId = 3;
-}
+message UpdateTeamResponse { string teamId = 3; }
 
 message DeleteTeamRequest { TeamWhereUniqueInput where = 1; }
 
-message DeleteTeamResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string teamId = 3;
-}
+message DeleteTeamResponse { string teamId = 3; }
 
 message GetTeamsRequest {
   google.protobuf.Struct paginateOptions = 1;
   google.protobuf.Struct findOptions = 2;
 }
 
-message GetTeamsResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  google.protobuf.Struct teams = 3;
-}
+message GetTeamsResponse { google.protobuf.Struct teams = 3; }

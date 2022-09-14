@@ -40,46 +40,26 @@ message CreateProjectRequest {
   repeated string userIds = 9;
 }
 
-message CreateProjectResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string projectId = 3;
-}
+message CreateProjectResponse { string projectId = 3; }
 
 message GetProjectRequest { ProjectWhereUniqueInput where = 1; }
 
-message GetProjectResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  entities.Project project = 3;
-}
+message GetProjectResponse { entities.Project project = 3; }
 
 message UpdateProjectRequest {
   ProjectWhereUniqueInput where = 1;
   UpdateProjectInput data = 2;
 }
 
-message UpdateProjectResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string projectId = 3;
-}
+message UpdateProjectResponse { string projectId = 3; }
 
 message DeleteProjectRequest { ProjectWhereUniqueInput where = 1; }
 
-message DeleteProjectResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string projectId = 3;
-}
+message DeleteProjectResponse { string projectId = 3; }
 
 message GetProjectsRequest {
   google.protobuf.Struct paginateOptions = 1;
   google.protobuf.Struct findOptions = 2;
 }
 
-message GetProjectsResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  google.protobuf.Struct projects = 3;
-}
+message GetProjectsResponse { google.protobuf.Struct projects = 3; }

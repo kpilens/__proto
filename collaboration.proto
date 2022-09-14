@@ -43,46 +43,26 @@ message CreateCollaborationRequest {
   entities.CollaborationResourceEnum resource = 8;
 }
 
-message CreateCollaborationResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string collaborationId = 3;
-}
+message CreateCollaborationResponse { string collaborationId = 3; }
 
 message GetCollaborationRequest { CollaborationWhereUniqueInput where = 1; }
 
-message GetCollaborationResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  entities.Collaboration collaboration = 3;
-}
+message GetCollaborationResponse { entities.Collaboration collaboration = 3; }
 
 message UpdateCollaborationRequest {
   CollaborationWhereUniqueInput where = 1;
   UpdateCollaborationInput data = 2;
 }
 
-message UpdateCollaborationResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string collaborationId = 3;
-}
+message UpdateCollaborationResponse { string collaborationId = 3; }
 
 message DeleteCollaborationRequest { CollaborationWhereUniqueInput where = 1; }
 
-message DeleteCollaborationResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string collaborationId = 3;
-}
+message DeleteCollaborationResponse { string collaborationId = 3; }
 
 message GetCollaborationsRequest {
   google.protobuf.Struct paginateOptions = 1;
   google.protobuf.Struct findOptions = 2;
 }
 
-message GetCollaborationsResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  google.protobuf.Struct collaborations = 3;
-}
+message GetCollaborationsResponse { google.protobuf.Struct collaborations = 3; }

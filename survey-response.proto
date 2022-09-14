@@ -29,11 +29,7 @@ message CreateSurveyResponseRequest {
   string surveyId = 1;
   string response = 2;
 }
-message CreateSurveyResponseResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string surveyResponseId = 3;
-}
+message CreateSurveyResponseResponse { string surveyResponseId = 3; }
 
 message GetSurveyResponseDataRequest {
   string surveyId = 1;
@@ -41,15 +37,13 @@ message GetSurveyResponseDataRequest {
   string responseId = 3;
 }
 message GetSurveyResponseDataResponse {
-  int32 status = 1;
-  repeated string error = 2;
+
   google.protobuf.Struct surveyResponseData = 3;
 }
 
 message GetSurveyResponseBase64Request { string id = 1; }
 message GetSurveyResponseBase64Response {
-  int32 status = 1;
-  repeated string error = 2;
+
   entities.SurveyResponse surveyResponseBase64 = 3;
 }
 
@@ -59,8 +53,7 @@ message GetManySurveyResponsesDataRequest {
   google.protobuf.Struct options = 3; // {paginateOptions, findOptions}
 }
 message GetManySurveyResponsesDataResponse {
-  int32 status = 1;
-  repeated string error = 2;
+
   google.protobuf.Struct surveyResponsesData = 3;
 }
 
@@ -69,8 +62,7 @@ message GetManySurveyResponsesBase64Request {
   google.protobuf.Struct findOptions = 2;
 }
 message GetManySurveyResponsesBase64Response {
-  int32 status = 1;
-  repeated string error = 2;
+
   google.protobuf.Struct surveyResponsesBase64 = 3;
 }
 
@@ -78,8 +70,4 @@ message CreateNewSurveyResponseTableRequest {
   string surveyId = 1;
   string workspaceId = 2;
 }
-message CreateNewSurveyResponseTableResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string table = 3;
-}
+message CreateNewSurveyResponseTableResponse { string table = 3; }

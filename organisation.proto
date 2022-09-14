@@ -40,21 +40,13 @@ message CreateOrganisationRequest {
   string authorId = 13;
 }
 
-message CreateOrganisationResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string organisationId = 3;
-}
+message CreateOrganisationResponse { string organisationId = 3; }
 
 message CreateOrganisationsRequest {
   repeated CreateOrganisationRequest data = 1;
 }
 
-message CreateOrganisationsResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  repeated string organisationIds = 3;
-}
+message CreateOrganisationsResponse { repeated string organisationIds = 3; }
 
 message OrganisationWhereUniqueInput {
   optional string id = 1;
@@ -80,53 +72,29 @@ message UpdateOrganisationRequest {
   optional string email = 16;
 }
 
-message UpdateOrganisationResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string organisationId = 3;
-}
+message UpdateOrganisationResponse { string organisationId = 3; }
 
 message UpdateOrganisationsRequest {
   repeated UpdateOrganisationRequest data = 1;
 }
 
-message UpdateOrganisationsResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  repeated string organisationIds = 3;
-}
+message UpdateOrganisationsResponse { repeated string organisationIds = 3; }
 
 message DeleteOrganisationRequest { OrganisationWhereUniqueInput where = 1; }
 
-message DeleteOrganisationResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string organisationId = 3;
-}
+message DeleteOrganisationResponse { string organisationId = 3; }
 
 message DeleteOrganisationsRequest { repeated string organisationIds = 1; }
 
-message DeleteOrganisationsResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  repeated string organisationIds = 3;
-}
+message DeleteOrganisationsResponse { repeated string organisationIds = 3; }
 
 message GetOrganisationRequest { OrganisationWhereUniqueInput where = 1; }
 
-message GetOrganisationResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  entities.Organisation organisation = 3;
-}
+message GetOrganisationResponse { entities.Organisation organisation = 3; }
 
 message GetOrganisationsRequest {
   google.protobuf.Struct paginateOptions = 1;
   google.protobuf.Struct findOptions = 2;
 }
 
-message GetOrganisationsResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  google.protobuf.Struct organisations = 3;
-}
+message GetOrganisationsResponse { google.protobuf.Struct organisations = 3; }

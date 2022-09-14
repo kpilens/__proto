@@ -38,46 +38,26 @@ message CreateWorkspaceRequest {
   string ownerId = 6;
 }
 
-message CreateWorkspaceResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string workspaceId = 3;
-}
+message CreateWorkspaceResponse { string workspaceId = 3; }
 
 message GetWorkspaceRequest { WorkspaceWhereUniqueInput where = 1; }
 
-message GetWorkspaceResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  entities.Workspace workspace = 3;
-}
+message GetWorkspaceResponse { entities.Workspace workspace = 3; }
 
 message UpdateWorkspaceRequest {
   WorkspaceWhereUniqueInput where = 1;
   UpdateWorkspaceInput data = 2;
 }
 
-message UpdateWorkspaceResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string workspaceId = 3;
-}
+message UpdateWorkspaceResponse { string workspaceId = 3; }
 
 message DeleteWorkspaceRequest { WorkspaceWhereUniqueInput where = 1; }
 
-message DeleteWorkspaceResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  string workspaceId = 3;
-}
+message DeleteWorkspaceResponse { string workspaceId = 3; }
 
 message GetWorkspacesRequest {
   google.protobuf.Struct paginateOptions = 1;
   google.protobuf.Struct findOptions = 2;
 }
 
-message GetWorkspacesResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  google.protobuf.Struct workspaces = 3;
-}
+message GetWorkspacesResponse { google.protobuf.Struct workspaces = 3; }
