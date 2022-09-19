@@ -24,8 +24,8 @@ service SurveyResponseService {
   rpc CreateNewSurveyResponseTable(CreateNewSurveyResponseTableRequest)
       returns (CreateNewSurveyResponseTableResponse);
 
-  rpc StreamSurveyResponsesData(StreamSurveyResponsesDataRequestData)
-      returns (StreamSurveyResponsesDataResponseData);
+  rpc StreamSurveyResponsesData(StreamSurveyResponsesDataRequest)
+      returns (StreamSurveyResponsesDataResponse);
 }
 
 message CreateSurveyResponseRequest {
@@ -75,11 +75,11 @@ message CreateNewSurveyResponseTableRequest {
 }
 message CreateNewSurveyResponseTableResponse { string table = 3; }
 
-message StreamSurveyResponsesDataRequestData {
+message StreamSurveyResponsesDataRequest {
   string workspaceId = 1;
   string surveyId = 2;
 }
 
-message StreamSurveyResponsesDataResponseData {
+message StreamSurveyResponsesDataResponse {
   repeated google.protobuf.Struct surveyResponsesData = 1;
 }
