@@ -81,5 +81,5 @@ message StreamSurveyResponsesDataRequest {
 }
 
 message StreamSurveyResponsesDataResponse {
-  repeated google.protobuf.Struct surveyResponsesData = 1;
+  google.protobuf.Struct surveyResponsesData = 1;
 }
