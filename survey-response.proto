@@ -23,9 +23,6 @@ service SurveyResponseService {
 
   rpc CreateNewSurveyResponseTable(CreateNewSurveyResponseTableRequest)
       returns (CreateNewSurveyResponseTableResponse);
-
-  rpc StreamSurveyResponsesData(StreamSurveyResponsesDataRequest)
-      returns (StreamSurveyResponsesDataResponse);
 }
 
 message CreateSurveyResponseRequest {
@@ -74,12 +71,3 @@ message CreateNewSurveyResponseTableRequest {
   string workspaceId = 2;
 }
 message CreateNewSurveyResponseTableResponse { string table = 3; }
-
-message StreamSurveyResponsesDataRequest {
-  string workspaceId = 1;
-  string surveyId = 2;
-}
-
-message StreamSurveyResponsesDataResponse {
-  google.protobuf.Struct surveyResponsesData = 1;
-}
